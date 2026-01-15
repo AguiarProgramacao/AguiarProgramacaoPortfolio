@@ -1,0 +1,154 @@
+@font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  :root {
+    /* Fundo escuro com leve contraste */
+    --background: 0 0% 3%;
+    --foreground: 0 0% 98%;
+
+    /* Cards */
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Cores vibrantes */
+    /* Lavanda mais intensa */
+    --primary: 260 100% 88%;
+    --primary-foreground: 0 0% 10%;
+
+    /* Verde menta mais vivo */
+    --secondary: 150 65% 85%;
+    --secondary-foreground: 0 0% 10%;
+
+    /* Azul bebê mais saturado */
+    --accent: 210 100% 85%;
+    --accent-foreground: 0 0% 10%;
+
+    /* Pêssego mais quente */
+    --peach: 30 100% 85%;
+    --peach-foreground: 0 0% 10%;
+
+    /* Rosa suave mais marcante */
+    --pink: 330 100% 85%;
+    --pink-foreground: 0 0% 10%;
+
+    /* Outros tons */
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 70%;
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 260 100% 88%;
+    --radius: 0.75rem;
+
+    /* Gradientes mais vibrantes */
+    --gradient-hero: linear-gradient(135deg, hsl(260 100% 88% / 0.25), hsl(150 65% 85% / 0.25));
+    --gradient-button: linear-gradient(135deg, hsl(260 100% 88%), hsl(210 100% 85%));
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 8%), hsl(0 0% 5%));
+
+    /* Glows mais intensos */
+    --glow-lavanda: 0 0 50px hsl(260 100% 88% / 0.4);
+    --glow-mint: 0 0 50px hsl(150 65% 85% / 0.4);
+    --glow-blue: 0 0 50px hsl(210 100% 85% / 0.4);
+
+    /* Transições */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-poppins antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-button);
+  }
+
+  .bg-gradient-hero {
+    background-image: var(--gradient-hero);
+  }
+
+  .glow-lavanda {
+    box-shadow: var(--glow-lavanda);
+  }
+
+  .glow-mint {
+    box-shadow: var(--glow-mint);
+  }
+
+  .glow-blue {
+    box-shadow: var(--glow-blue);
+  }
+
+  .tech-grid {
+    background-image: 
+      linear-gradient(to right, hsl(0 0% 20% / 0.15) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(0 0% 20% / 0.15) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  .tech-lines {
+    background-image: 
+      linear-gradient(45deg, transparent 48%, hsl(260 100% 88% / 0.08) 49%, hsl(260 100% 88% / 0.08) 51%, transparent 52%),
+      linear-gradient(-45deg, transparent 48%, hsl(150 65% 85% / 0.08) 49%, hsl(150 65% 85% / 0.08) 51%, transparent 52%);
+    background-size: 80px 80px;
+  }
+
+  /* Glowing orbs decorations */
+  .glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.3;
+    animation: float 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .glow-orb-primary {
+    background: radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%);
+  }
+
+  .glow-orb-secondary {
+    background: radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%);
+  }
+
+  .glow-orb-accent {
+    background: radial-gradient(circle, hsl(var(--accent)) 0%, transparent 70%);
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+}
