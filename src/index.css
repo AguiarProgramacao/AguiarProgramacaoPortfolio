@@ -118,6 +118,25 @@
     background-size: 80px 80px;
   }
 
+  .marquee {
+    display: flex;
+    gap: 3rem;
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    flex-shrink: 0;
+    width: max-content;
+    animation: marquee-scroll 28s linear infinite;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
   /* Glowing orbs decorations */
   .glow-orb {
     position: absolute;
@@ -149,6 +168,15 @@
     }
     66% {
       transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
     }
   }
 }

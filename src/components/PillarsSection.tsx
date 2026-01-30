@@ -30,7 +30,6 @@ const PillarsSection = () => {
       <div className="glow-orb glow-orb-primary w-96 h-96 top-20 left-10" />
       <div className="glow-orb glow-orb-secondary w-80 h-80 bottom-20 right-20" style={{ animationDelay: '2s' }} />
       
-      {/* Glowing orbs */}
       <div className="glow-orb glow-orb-primary w-96 h-96 top-20 left-10" />
       <div className="glow-orb glow-orb-secondary w-80 h-80 bottom-20 right-20" style={{ animationDelay: '2s' }} />
       
